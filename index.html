@@ -5,11 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <link rel="stylesheet" href="style.css">
-    <script src="test-helpers.js" defer></script>
-    <script src="index.js" defer></script>
     <title>To-do list</title>
 </head>
 <body>
+    <div class="wrapper">
+        <section class="to-do-input-section">
+            <form action="" id="to-do-input">
+                <input required
+                aria-label="Enter task"
+                type="text"
+                id="to-do"
+                name="to-do"
+                placeholder="Enter a to-do item"/>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+        <section class="to-do-list" id="main">
+            <div class="todo-container">
+                <p class="no-tasks-msg">You don't have any tasks at the moment.</p>    
+            </div>
+        </section>
+    </div>
+
 
 </body>
 </html>

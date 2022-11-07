@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&display=swap');
+* {
+    box-sizing: border-box;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 2.5%;
+  }
+.wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.32) 0px 1px 4px;
+  background-color: #F5F5F5;
+}
+.to-do-input-section {
+  height: 4rem;
+  display: flex;
+  padding: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #6F73D2;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  background-image: linear-gradient(90deg, #6F73D2, #9FA0FF, #DAB6FC );
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05)
+}
+
+input {
+  min-width: 320px;;
+  border-radius: 25px;
+  border: none;
+  height: 2rem;
+  padding: 5px 15px;
+  border: 1px solid rgba(0, 0, 0, 0.05)
+}
+button[type="submit"]{
+  border-radius: 25px;
+  border: none;
+  height: 2rem;
+  padding: 5px 15px;
+  cursor: pointer;
+  background-color: #38E4AE;
+}
+button[type="submit"]:hover {
+  background-color: #74daba
+}
+
+.todo-container {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 239, 239);
+  min-height: 500px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.no-tasks-msg {
+  text-align: center;
+  font-family: 'Shadows Into Light Two', cursive;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.flex-container-to-do {
+    display: flex;
+    flex-flow: row wrap;
+    border-bottom: solid 1px #70706f;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+  }
+
+@media all and (max-width: 450px){
+  input {
+    min-width: 200px;
+  }
+}
