@@ -88,7 +88,7 @@ button[type="submit"]:hover {
   padding: 0.75rem;
 }
 
-@media all and (max-width: 450px) {
+@media all and (max-width: 500px) {
   body {
     padding: 0;
   }
@@ -98,13 +98,11 @@ button[type="submit"]:hover {
     border-radius: 0;
   }
   .to-do-input-section {
-    padding: 0.3rem;
     border-radius: 0;
   }
   .todo-container {
     border-radius: 0;
     height: 100%;
-    padding: 0.3rem;
   }
   ul:first-child {
     margin-top: 0.5rem;
@@ -154,7 +152,8 @@ label {
 }
 input[type="checkbox"]{
   margin: 0;
-  transform: scale(1.5)
+  transform: scale(1.5);
+  accent-color: #6f73d2;
 }
 input[type="checkbox"]:checked + span {
   color: rgb(159, 156, 156);
@@ -170,8 +169,14 @@ input[type="checkbox"]:checked + span {
 .fa-x {
   background-color: transparent;
   font-size: 1.2rem;
+  color: #000;
 }
-
-.fa-x:hover, button.remove-task-btn:focus .fa-x {
-  color: #38e4ae
+.fa-x:hover {
+  color: #6f73d2;
+}
+input[type="checkbox"]:checked + span + button .fa-x {
+  color:rgb(159, 156, 156);
+}
+input[type="checkbox"]:checked + span + button .fa-x:hover, button.remove-task-btn:focus .fa-x {
+  color: #6f73d2
 }
