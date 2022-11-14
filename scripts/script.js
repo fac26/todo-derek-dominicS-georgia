@@ -4,7 +4,7 @@ const form = document.querySelector(".form");
 const input = form.querySelector(".form-input");
 const list = document.querySelector(".list");
 
-form.addEventListener("submit", (x) => {
+form.addEventListener("submit", (e) => {
   x.preventDefault(); // prevents page reload
   let id = String(Date.now()); // unique id to edit
   let task = input.value; // assigns input value
