@@ -1,81 +1,49 @@
-let listArray = [];
-
-const form = document.querySelector(".form");
-const input = form.querySelector(".form-input");
+// grabs input
+const toDo = document.getElementById("to-do");
+// grabs list
 const list = document.querySelector(".list");
+// grabs submit button
+const submitBtn = document.getElementById("submit-btn");
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault(); // prevents page reload
-  let id = String(Date.now()); // unique id to edit
-  let task = input.value; // assigns input value
-  // task and id functionality
-  addTaskToDOM(id, task);
-  addTaskToArray(id, task);
-  removeMessage();
-  input.value = ""; // clears input
-});
+// add task functionality
+const addTaskItem = () => {
+  const newTask = toDo.value;
 
-//////////////
-
-const addTaskToDOM = (id, task) => {
-  // create li
-  const liTask = document.createElement("li");
-  liTask.setAttribute("data-id", id);
-  // put task elements inside li
-  liTask.innerHTML = 
-  `
+  const taskItem = document.createElement("li");
+  taskItem.classList = "list";
+  if (newTask.trim() === "") {
+    return;
+  } else {
+    taskItem.innerHTML = `
   <input aria-label="Mark task as complete" type="checkbox"/>
-  <span>${task}</span>
+  <span>${newTask}</span>
   <button type="button" class="remove-task-btn"><i class="fa-solid fa-x"></i></button>
-  `
-  // add event listeners to remove task button
-  const removeTaskButton = liTask.querySelector(".remove-task-btn")
+  `;
+    list.appendChild(taskItem);
+    toDo.value = "";
+  }
+  // allows the X button to delete with the function below
+  const removeTaskButton = taskItem.querySelector(".remove-task-btn");
   removeTaskButton.addEventListener("click", (e) => {
-    removeTaskFromDOM(e.target);
-    removeTaskFromArray(e.target);
-    checkIfAnyTasksRemain();
-  })
-  // add list item to DOM
-  list.appendChild(liTask);
+    deleteTask(e.target);
+  });
+  
 };
 
-const addTaskToArray = (id, task) => {
-  // add item to array as an object
-  listArray.push({ id, task });
-  console.log(listArray);
-};
-
-const removeTaskFromDOM = (task) => {
+// delete task functionality
+const deleteTask = (e) => {
   // find the task to remove
-  const elementToRemove = task.closest("li");
+  // uses .closest to remove 'closest li element'
+  const taskToDelete = e.closest("li");
   // remove the task
-  elementToRemove.remove();
+  taskToDelete.remove();
 };
 
-const removeTaskFromArray = (task) => {
-  // find the task to remove
-  const taskToRemoveFromArray = task.closest("li");
-  // find the task to remove's id
-  const taskToRemoveID = taskToRemoveFromArray.getAttribute("data-id");
-  // remove the task from the array by using filter to only include task's that don't match the given id
-  listArray = listArray.filter((element) => element.id !== taskToRemoveID);
-  console.log(listArray);
-};
-
-const removeMessage = () => {
-  // remove the message saying there are no tasks after the first task has been added
-  if (document.querySelector(".no-tasks-msg") !== null && listArray.length === 1 ){
-    document.querySelector(".no-tasks-msg").remove();
+// event listeners
+submitBtn.addEventListener("click", addTaskItem);
+toDo.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    addTaskItem();
   }
-}
 
-const checkIfAnyTasksRemain = () => {
-  const container = document.querySelector(".todo-container");
-  // create a message saying there aren't any more tasks if the array length is 0;
-  if (listArray.length === 0){
-    const noTasksAvailable = document.createElement("p");
-    noTasksAvailable.textContent = "You don't have any tasks at the moment.";
-    noTasksAvailable.classList.add("no-tasks-msg");
-    container.appendChild(noTasksAvailable)
-  }
-}
+});
