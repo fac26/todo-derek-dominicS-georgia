@@ -5,7 +5,7 @@ const input = form.querySelector(".form-input");
 const list = document.querySelector(".list");
 
 form.addEventListener("submit", (e) => {
-  x.preventDefault(); // prevents page reload
+  e.preventDefault(); // prevents page reload
   let id = String(Date.now()); // unique id to edit
   let task = input.value; // assigns input value
   // task and id functionality
@@ -28,6 +28,7 @@ const addTaskToDOM = (id, task) => {
   <span>${task}</span>
   <button type="button" class="remove-task-btn"><i class="fa-solid fa-x"></i></button>
   `
+  // add event listeners to remove task button
   const removeTaskButton = liTask.querySelector(".remove-task-btn")
   removeTaskButton.addEventListener("click", (e) => {
     removeTaskFromDOM(e.target);
@@ -39,7 +40,7 @@ const addTaskToDOM = (id, task) => {
 };
 
 const addTaskToArray = (id, task) => {
-  // add item to array as an object with an id so can be deleted later
+  // add item to array as an object
   listArray.push({ id, task });
   console.log(listArray);
 };
@@ -72,7 +73,7 @@ const checkIfAnyTasksRemain = () => {
   const container = document.querySelector(".todo-container");
   // create a message saying there aren't any more tasks if the array length is 0;
   if (listArray.length === 0){
-    noTasksAvailable = document.createElement("p");
+    const noTasksAvailable = document.createElement("p");
     noTasksAvailable.textContent = "You don't have any tasks at the moment.";
     noTasksAvailable.classList.add("no-tasks-msg");
     container.appendChild(noTasksAvailable)
