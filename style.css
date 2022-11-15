@@ -93,12 +93,18 @@ button[type="submit"]:hover {
     padding: 0;
   }
   .wrapper {
-    height: 100vh;
     width: 100vw;
+    height: 100vh;
     border-radius: 0;
+    display: flex;
+    flex-direction: column;
   }
   .to-do-input-section {
     border-radius: 0;
+  }
+  .to-do-list {
+    flex-grow: 1;
+    overflow: auto;
   }
   .todo-container {
     border-radius: 0;
@@ -154,6 +160,7 @@ input[type="checkbox"]{
   margin: 0;
   transform: scale(1.5);
   accent-color: #6f73d2;
+  cursor: pointer;
 }
 input[type="checkbox"]:checked + span {
   color: rgb(159, 156, 156);
