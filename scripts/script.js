@@ -6,6 +6,8 @@ const list = document.querySelector(".list");
 // grabs submit button
 const submitBtn = document.getElementById("submit-btn");
 
+const tasks = [];
+
 // add task functionality
 const addTaskItem = () => {
   //const newTask = toDo.value;
@@ -20,6 +22,9 @@ const addTaskItem = () => {
   <button type="button" class="remove-task-btn"><i class="fa-solid fa-x"></i></button>
   `;
   list.appendChild(taskItem);
+  tasks.push(input.value);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  console.log({tasks});
   input.value = "";
 
   // allows the X button to delete with the function below
