@@ -27,6 +27,7 @@ const addTaskItem = () => {
   removeTaskButton.addEventListener("click", (e) => {
     deleteTask(e.target);
   });
+  
 };
 
 // delete task functionality
@@ -44,4 +45,5 @@ toDo.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     addTaskItem();
   }
+
 });
