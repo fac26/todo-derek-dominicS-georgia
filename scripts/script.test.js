@@ -1,8 +1,29 @@
 // minimum testing requirements
 
 //Add tasks to a list so that I can keep track of them
-test("Submitting a new task adds it to the list", () => {
-  // test goes here
+test("Submitting a new task adds it to the list of to-dos", () => {
+  // grabs the list
+  const list = document.querySelector(".list");
+  // grabs submit button
+  const submitBtn = document.getElementById("submit-btn");
+  // create an artificial input for testing
+  const input = [
+    "Here's the first task",
+    "And another task",
+    "",
+    "Above this was a blank task",
+  ];
+  const inputArray = input.filter((e) => e);
+  inputArray.forEach((e) => {
+    input.value = e;
+    submitBtn.click();
+  });
+  const result = document.querySelectorAll("li");
+  const actual = result.length;
+  const expected = inputArray.length;
+
+  equal(actual, expected);
+  list.innerHTML = "";
 });
 
 // Check things off my list so that I can see what I’ve done
@@ -17,20 +38,25 @@ test("Deleting an entry removes it from the list", () => {
 
 ////
 
+
 test("does the tasks array have a new item in it after user clicks submit?", (event) => {
-  event.preventDefault();
+  // event.preventDefault();
   // 1. grab the input element
-  const userInput = document.querySelector(".nameOfInputElement");
+  const input = document.querySelector("input");
   // 2. Enter a task into the input element
-  userInput.value = "Do this by Tuesday";
+  input.value = "Do this by Tuesday";
   // 3. grab the submit button
-  const submitBtn = document.querySelector(".nameOfSubmitBtn");
+  const submitBtn = document.getElementById("submit-btn");
   // 4. click the submit button to send the task off
   submitBtn.click();
-  // 5. check that the last item in the array has the same message
-  // (Or we could check the array length before submitting and compare it to after submitting?)
-  equal(tasksArray[tasksArray.length - 1], "Do this by Tuesday");
-  userInput.value = ""; //
+  // 5. check item inserted into li element
+  const actual = document.getElementsByTagName("li")[0].value;
+  console.log(actual)
+  // 6. verify expectation
+  const expected = 0
+  // 7. perform test
+  equal(expected, actual);
+  input.value = ""; //
 });
 
 test("has the DOM been updated after user clicks submit?", (event) => {
