@@ -44,19 +44,19 @@ test("does the tasks array have a new item in it after user clicks submit?", (ev
   // 1. grab the input element
   const input = document.querySelector("input");
   // 2. Enter a task into the input element
-  input.value = "Do this by Tuesday";
+  //input.value = "Do this by Tuesday";
   // 3. grab the submit button
   const submitBtn = document.getElementById("submit-btn");
   // 4. click the submit button to send the task off
   submitBtn.click();
   // 5. check item inserted into li element
-  const actual = document.getElementsByTagName("li")[0].value;
+  const actual = document.getElementsByTagName("li")[0]
   console.log(actual)
   // 6. verify expectation
-  const expected = 0
+  const expected = 0;
   // 7. perform test
   equal(expected, actual);
-  input.value = ""; //
+  input.value = ""; 
 });
 
 test("has the DOM been updated after user clicks submit?", (event) => {
