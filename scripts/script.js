@@ -22,20 +22,20 @@ const addTaskItem = () => {
     list.appendChild(taskItem);
     toDo.value = "";
   }
-
+  // allows the X button to delete with the function below
   const removeTaskButton = taskItem.querySelector(".remove-task-btn");
   removeTaskButton.addEventListener("click", (e) => {
     deleteTask(e.target);
   });
 };
 
-// remove task button functionality
+// delete task functionality
 const deleteTask = (e) => {
   // find the task to remove
   // uses .closest to remove 'closest li element'
-  const elementToRemove = e.closest("li");
+  const taskToDelete = e.closest("li");
   // remove the task
-  elementToRemove.remove();
+  taskToDelete.remove();
 };
 
 // event listeners
