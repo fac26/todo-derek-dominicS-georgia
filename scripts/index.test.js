@@ -1,12 +1,13 @@
 // add tasks to a list so that I can keep track of them
 
 test("Submitting a new task adds it to the list", () => {
-  // test goes here
+  const result = addTaskItem("going to the pub");
+  equal(result, 1);
 });
 
 // check things off my list so that I can see what I've done
 test("Checking an entry marks it as complete", () => {
-  // test goes here
+  // test goes her
 });
 
 // delete things from the list if I don't need to do them anymore
