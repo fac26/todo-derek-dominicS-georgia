@@ -11,7 +11,7 @@ const addTaskItem = () => {
   //const newTask = toDo.value;
 
   const taskItem = document.createElement("li");
-  taskItem.classList = "list";
+  taskItem.classList = "listItem";
   if (input.value === "") return;
 
   taskItem.innerHTML = `
