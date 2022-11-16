@@ -86,7 +86,7 @@ button[type="submit"]:hover {
   input {
     min-width: 200px;
   }
-  footer {
+  #footer {
     display: none;
   }
 }
