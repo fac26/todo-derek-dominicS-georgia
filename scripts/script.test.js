@@ -39,6 +39,7 @@ test("Deleting an entry removes it from the list", () => {
 // <======== TESTING THE ADD NEW TASK FUNCTIONALITY ========>
 
 test("Can a user add a new task to the list?", () => {
+  // 1. Create a new task
   const input = document.querySelector("#to-do");
   input.value = `This is a task`;
   const submitButton = document.querySelector("#submit-btn");
@@ -52,6 +53,27 @@ NumOfTasks = currentTasks.length;
 
 // 4. Compare the number of tasks in the DOM with the expected number
 equal(NumOfTasks, 1);
+
+// 5. Reset DOM 
+const removeButtons = document.querySelectorAll(".remove-task-btn");
+removeButtons.forEach(button => button.click())
+})
+
+test("Testing whether the user's input is the task that's been added", () => {
+// 1. Create a new task
+const input = document.querySelector("#to-do");
+input.value = `This is a task`;
+const submitButton = document.querySelector("#submit-btn");
+submitButton.click();
+
+// 2. Grab all the li elements in the DOM to see how many tasks have been created
+const currentTask = document.querySelector(".listItem");
+
+// 3. Grab the task value;
+const taskToDo = currentTask.querySelector("span").textContent
+
+// 4. Compare the number of tasks in the DOM with the expected number
+equal(taskToDo, `This is a task`);
 
 // 5. Reset DOM 
 const removeButtons = document.querySelectorAll(".remove-task-btn");
