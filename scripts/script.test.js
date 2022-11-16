@@ -36,43 +36,97 @@ test("Deleting an entry removes it from the list", () => {
   // test goes here
 });
 
-////
+// <======== TESTING THE ADD NEW TASK FUNCTIONALITY ========>
 
+test("Can a user add a new task to the list?", () => {
+  const input = document.querySelector("#to-do");
+  input.value = `This is a task`;
+  const submitButton = document.querySelector("#submit-btn");
+  submitButton.click();
 
-test("does the tasks array have a new item in it after user clicks submit?", (event) => {
-  // event.preventDefault();
-  // 1. grab the input element
-  const input = document.querySelector("input");
-  // 2. Enter a task into the input element
-  //input.value = "Do this by Tuesday";
-  // 3. grab the submit button
-  const submitBtn = document.getElementById("submit-btn");
-  // 4. click the submit button to send the task off
-  submitBtn.click();
-  // 5. check item inserted into li element
-  const actual = document.getElementsByTagName("li")[0]
-  console.log(actual)
-  // 6. verify expectation
-  const expected = 0;
-  // 7. perform test
-  equal(expected, actual);
-  input.value = ""; 
+// 2. Grab all the li elements in the DOM to see how many tasks have been created
+const currentTasks = document.querySelectorAll(".listItem");
+
+// 3. Check the length of the list;
+NumOfTasks = currentTasks.length;
+
+// 4. Compare the number of tasks in the DOM with the expected number
+equal(NumOfTasks, 1);
+
+// 5. Reset DOM 
+const removeButtons = document.querySelectorAll(".remove-task-btn");
+removeButtons.forEach(button => button.click())
+})
+
+test("Can a user add multiple new tasks to the list", () => {
+  // 1. Use a loop to create 3 different tasks
+  for (let i = 0; i < 3; i++){
+    const input = document.querySelector("#to-do");
+    input.value = `Task ${i + 1}: This is a task`;
+    const submitButton = document.querySelector("#submit-btn");
+    submitButton.click();
+  }
+  // 2. Grab all the li elements in the DOM to see how many tasks have been created
+  const currentTasks = document.querySelectorAll(".listItem");
+
+  // 3. Check the length of the list;
+  NumOfTasks = currentTasks.length;
+
+  // 4. Compare the number of tasks in the DOM with the expected number
+  equal(NumOfTasks, 3)
+
+  // 5. Reset DOM 
+  const removeButtons = document.querySelectorAll(".remove-task-btn");
+  removeButtons.forEach(button => button.click())
+})
+
+// <======== TESTING THE CHECKBOXES ========>
+
+test("Can a user mark a task as complete?", () => {
+  // 1. Select the input element and enter a new task
+  const input = document.querySelector("#to-do");
+  input.value = "Testing if checkboxes work";
+
+  // 2. Submit the task
+  const submitButton = document.querySelector("#submit-btn");
+  submitButton.click();
+
+  // 3. Select and then click the checkbox in the new task
+  const checkbox = document.querySelector("input[type='checkbox']");
+  checkbox.click();
+
+  // 4. Check whether the checkbox has been ticked and assign it to the variable `actual`
+  const checkboxStatus = checkbox.checked;
+  actual = checkboxStatus;
+
+  // 5. Set `expected` to true
+  expected = true;
+
+  // 6.  Compare actual and expected
+  equal(actual, expected);
+
+  // 7. Reset DOM 
+  const removeButtons = document.querySelectorAll(".remove-task-btn");
+  removeButtons.forEach(button => button.click())
 });
 
-test("has the DOM been updated after user clicks submit?", (event) => {
-  event.preventDefault();
-  // 1. grab the input element
-  const userInput = document.querySelector(".nameOfInputElement");
-  // 2. Enter a task into the input element
-  userInput.value = "Do this by Tuesday";
-  // 3. grab the submit button
-  const submitBtn = document.querySelector(".nameOfSubmitBtn");
-  // 4. click the submit button to send the task off
-  submitBtn.click();
-  // 5. grab the container where all the tasks are stored
-  const tasks = document.querySelector(".taskContainer");
-  // 6. check the last child in the taskcontainer has the most recent task
-  const mostRecentTask = tasks.lastElementChild;
-  equal(mostRecentTask.textContent, "Do this by Tuesday");
-  userInput.value = "";
-});
+// <======== TESTING THE DELETE FUNCTION ========>
+
+test("Can the user delete a task from the list?", () => {
+  // 1. Create a new task
+  const input = document.querySelector("#to-do");
+  input.value = "Testing if the delete button works";
+  const submitButton = document.querySelector("#submit-btn");
+  submitButton.click();
+
+  // 2. Select and click the delete button
+  const deleteTaskButton = document.querySelector(".remove-task-btn");
+  deleteTaskButton.click();
+
+  // 3. Check how many tasks are on the page (should an empty nodelist)
+  const tasks = document.querySelectorAll(".listItem");
+  actual = tasks.length;
+
+  // 4. Compare actual and expected
+  equal(actual, 0)
+})
