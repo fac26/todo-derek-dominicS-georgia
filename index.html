@@ -1,36 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
     <title>To-do list</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="wrapper">
-        <section class="to-do-input-section">
-            <form action="" id="to-do-input">
-                <input required
-                aria-label="Enter task"
-                type="text"
-                id="to-do"
-                name="to-do"
-                placeholder="Enter a to-do item"/>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-
+      <!--Task input area-->
+      <section class="to-do-input-section">
+        <form class="form" action="" id="to-do-input">
+          <input
+            class="form-input"
+            required
+            aria-label="Enter task"
+            type="text"
+            id="to-do"
+            name="to-do"
+            placeholder="Enter a to-do item"
+          />
+          <button type="submit" id="submit-btn">Submit</button>
+        </form>
+      </section>
+      
         <section class="to-do-list" id="main">
             <div class="todo-container">
                 <p class="no-tasks-msg">You don't have any tasks at the moment.</p>    
             </div>
         </section>
     </div>
-    <footer class="footer" id="footer">
+
+
+      <!--To-do list area-->
+      <section class="to-do-list" id="main">
+        <div class="todo-container">
+<!--           <p class="no-tasks-msg">You don't have any tasks at the moment.</p> -->
+          <ul class="list" id=></ul>
+        </div>
+      </section>
+
+      <!--Completed tasks area?-->
+
+          <footer class="footer" id="footer">
         <span>Authors: Derek Lo, Georgia Whitney, and Dominic Simpson, 2022</span>
-    </section>
-
-
-</body>
+    </footer>
+    </div>
+    <script src="./scripts/test-helpers.js"></script>
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/script.test.js"></script>
+  </body>
 </html>

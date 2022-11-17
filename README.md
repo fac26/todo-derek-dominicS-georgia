@@ -1,10 +1,20 @@
 # todo-derek-dominicS-georgia
 
-###### For our testing project, we will design a to-app. The user will be prompted to enter in a task in an input field. That inputted to-do task will then be added to an array or object and displayed visually in the main section of the page. Each task is an object which can be stored in an array. 
-It should look something like this: 
+## Background
+This project was made as part of the test-driven development part of the Founders and Coders skills bootcamp. We will be utilising the test methods that we have learnt.
 
-```
-[{taskNo: 1, task: "I want to do this", status: "Completed"}, {{taskNo: 2, task: "I want to do that", status: "Not completed"}}]
-```
-###### Accompanying the to-do list will be a checkbox for each item that the user can tick, so that way they can indicate to themselves that they've completed that task. There will also be a delete button; when the user clicks this, the to-do item will dissapear from the page, indicating that the task has been completed and does not need to be listed.
-###### If we have time, we will also add a stretch task, which is an additional section in which those to-do items that are completed are listed so that the user can focus on what’s left to do; this would be separate to those that the user simply wants to delete. 
+## Overview 
+This project is a to-do app that allows a user to: 
+- Add tasks to a list.
+- Check completed tasks off the list.
+- Delete tasks from the list.
+- Use the app without a mouse.
+
+## How to use
+Try the app out [here](https://fac26.github.io/todo-derek-dominicS-georgia/).
+
+## How we constructed the app
+The user is prompted to enter in a to-do item. We have created a dynamic list item in which the to-do items are pushed, and displayed on the screen. We have created separate functions for pushing into the list item and deleting from the list item. 
+
+## Collaborators
+This project was made by [DominicSimpson](https://github.com/DominicSimpson), [rockyrelay](https://github.com/rockyrelay), and [LL835](https://github.com/LL835).
